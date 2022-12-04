@@ -756,6 +756,7 @@ parts = chunked
 
 split_into_n_groups=more_itertools.distribute
 split_up=chunked
+chunks = chunked
 def first_repeat(a):
     '''returns the first element to be seen twice in a'''
     seen = set()

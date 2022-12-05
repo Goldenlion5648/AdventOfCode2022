@@ -16,7 +16,7 @@ class irange:
         if type(other) in [range, irange]:
             return other.start in self.range or other.stop-other.step in self.range or\
                    self.start in other.range or self.stop-self.step in other.range
-        
+        return False
     def __repr__(self) -> str:
         return str(self.range)
 

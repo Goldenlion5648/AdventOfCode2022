@@ -5,14 +5,12 @@ with open("input6.txt") as f:
     real_input = f.read().strip()
 
 def main(a : str, size : int):
-    a = a.strip()
-    inp = AdventInput(data=a)
-    for line in inp.lines:
-        for i in range(len(line)):
-            if len(set(line[i:i+size])) == size:
-                return i + size
+    for i in range(len(a)):
+        if len(set(a[i:i+size])) == size:
+            return i + size
 
-
+print(main(real_input, size=4))
+print(main(real_input, size=14))
 
 samp = r"""
 mjqjpqmgbljsphdztnvjfqwrcgsmlb

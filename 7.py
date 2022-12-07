@@ -7,7 +7,6 @@ with open("input7.txt") as f:
 def main(a : str, part2=False):
     a = a.strip()
     inp = AdventInput(data=a)
-    ret = 0
     node = lambda : dd(node)
     G = node()
     cur = G
@@ -45,7 +44,6 @@ def main(a : str, part2=False):
         elif "$ ls" in line:
             pos += 1
             while pos + 1 < len(inp.lines) and "$" not in inp.lines[pos]:
-
                 parts = inp.lines[pos].split()
                 if parts[0].isnumeric():
                     path.append(parts[-1])
@@ -61,10 +59,6 @@ def main(a : str, part2=False):
         space = 70000000 - total_sizes["//"]
         return min(v for v in total_sizes.values() if space + v >= 30000000)
     return sum(v for v in total_sizes.values() if v <= 100000)
-
-            
-
-
 
 
 samp = r"""
@@ -93,7 +87,7 @@ $ ls
 7214296 k
 """.lstrip("\n")
 
-if samp:
+if samp.strip():
     sample_answer = main(samp, part2=False)
     print("sample", sample_answer)
     sample_answer = main(samp, part2=True)

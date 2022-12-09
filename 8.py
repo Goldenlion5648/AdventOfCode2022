@@ -8,9 +8,10 @@ def main(a : str, real=True):
     a = a.strip()
     inp = AdventInput(data=a)
     board = read_grid(inp.data, True)
-    inp.lines = inp.data.splitlines()
     Y = len(inp.lines)
     X = len(inp.lines[0])
+    # print(type(board[1, 3]))
+    print("in file", sys.argv)
     
 
     def part1():

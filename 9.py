@@ -51,14 +51,9 @@ def main(a : str, segment_count=10):
         d, amt = line.split()
         amt = int(amt)
         for i in range(amt):
-            if d == "R":
-                x += 1 
-            if d == "L":
-                x -= 1
-            if d == "D":
-                y += 1
-            if d == "U":
-                y -= 1
+            dy, dx = dirs[d]
+            y += dy
+            x += dx
             move_segments(segments, y, x)
 
             tail.add(segments[0])

@@ -14,20 +14,21 @@ def main(a : str, part2=False):
     inp = AdventInput(data=a)
     board = dd(lambda : '.')
     y_max = -inf
+    OPEN = "."
+    SAND = "O"
+    ROCK = "#"
     for line in inp.lines:
         parts = line.split(" -> ")
         parts = [lmap(int, part.split(",")) for part in parts]
         y_max = max(y_max, max(part[1] for part in parts) + 2)
         for (x, y), (x2, y2) in zip(parts, parts[1:]):
-            for i in irange(*minmax(y, y2)):
-                for j in irange(*minmax(x, x2)):
-                    board[i, j] = "#"
+            for i in irange(y, y2):
+                for j in irange(x, x2):
+                    board[i, j] = ROCK
 
-    OPEN = "."
-    SAND = "O"
     if part2:
         for x in range(-10000, 10000):
-            board[y_max, x] = "#"
+            board[y_max, x] = ROCK
     for i in range(30000000):
         start = (0, 500)
         y, x = start
